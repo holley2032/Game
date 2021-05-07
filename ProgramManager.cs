@@ -8,6 +8,7 @@ namespace Game
     {
         public Boolean InitializeGame(int VictoryPointTotal, int NumberOfPlayers)
         {
+            var NewGame = new GameInstance(VictoryPointTotal, NumberOfPlayers);
             return true;
         }
     }
