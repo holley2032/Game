@@ -16,5 +16,7 @@ namespace Game
         public int NumberOfPlayers { get; set; }
         public int VictoryPointTotal { get; set; }
         public Boolean VictoryConditionMet { get; set; }
+        public List<Player> Players { get; set; }
+        public List<Tile> Board { get; set; }
     }
 }
