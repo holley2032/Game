@@ -6,9 +6,19 @@ namespace Game
 {
     class ProgramManager
     {
-        static public GameInstance InitializeGame(int VictoryPointTotal, int NumberOfPlayers)
+        static public List<Tile> InitializeBoard(int numberOfPlayers)
         {
-            var NewGame = new GameInstance(VictoryPointTotal, NumberOfPlayers);
+            List<Tile> board = new List<Tile>();
+            return board;
+        }
+        static public List<Player> InitializePlayers(int numberOfPlayers)
+        {
+            List<Player> players = new List<Player>(numberOfPlayers);
+            return players;
+        }
+        static public GameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board)
+        {
+            var NewGame = new GameInstance(victoryPointTotal, numberOfPlayers, players, board);
             return NewGame;
         }
     }

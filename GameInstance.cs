@@ -6,10 +6,12 @@ namespace Game
 {
     class GameInstance
     {
-        public GameInstance(int victoryPointTotal, int numberOfPlayers)
+        public GameInstance(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board)
         {
             VictoryPointTotal = victoryPointTotal;
             NumberOfPlayers = numberOfPlayers;
+            Players = players;
+            Board = board;
         }
 
         public int TurnNumber { get; set; }

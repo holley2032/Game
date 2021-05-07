@@ -6,5 +6,6 @@ namespace Game
 {
     class Turn
     {
+        public int TurnNumber { get; set; }
     }
 }
