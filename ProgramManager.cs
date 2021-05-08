@@ -8,7 +8,7 @@ namespace Game
     {
         static public List<Tile> InitializeBoard(int numberOfPlayers)
         {
-            List<Tile> board = new List<Tile>();
+            List<Tile> board = new List<Tile>(BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
             return board;
         }
         static public List<Player> InitializePlayers(int numberOfPlayers)

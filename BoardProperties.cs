@@ -6,9 +6,7 @@ namespace Game
 {
     class BoardProperties
     {
-        static BoardProperties()
-        {
-            PlayersToTiles = new Dictionary<int, int>(5)
+        static private Dictionary<int, int> _PlayersToTiles = new Dictionary<int, int>(5)
             {
                 { 2, 20 },
                 { 3, 25 },
@@ -16,14 +14,24 @@ namespace Game
                 { 5, 35 },
                 { 6, 45 }
             };
-            TileTypeList = new List<string>(10)
+        static private List<string> _TileTypeList = new List<string>(10)
             {
                 "Forest",
                 "Desert",
-                "Hills"
-            }
+                "Hills",
+                "Canyon",
+                "Ocean",
+                "Lake",
+                "Plains",
+                "Grassland",
+                "Mountains",
+                "Floodplains"
+            };
+        static public Dictionary<int, int> PlayersToTiles { 
+            get => _PlayersToTiles;
         }
-        static public Dictionary<int, int> PlayersToTiles { get; }
-        static public List<string> TileTypeList { get; }
+        static public List<string> TileTypeList { 
+            get => _TileTypeList;
+        }
     }
 }
