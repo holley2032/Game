@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Game
 {
@@ -7,8 +8,12 @@ namespace Game
         static void Main(string[] args)
         {
             ProgramManager Manager = new ProgramManager();
-            GameInstance NewGame = ProgramManager.InitializeGame(7, 5);
-            Console.WriteLine($"You have created a new game with a victory point total of {NewGame.VictoryPointTotal} and {NewGame.NumberOfPlayers} players");
+            List<Tile> board = Manager.InitializeBoard(2);
+            //Console.WriteLine($"You have created a new game with a victory point total of {NewGame.VictoryPointTotal} and {NewGame.NumberOfPlayers} players");
+            foreach(Tile tile in board)
+            {
+                Console.WriteLine(tile.ToString());
+            }
         }
     }
 }
