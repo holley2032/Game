@@ -6,6 +6,44 @@ namespace Game
 {
     class ProgramManager
     {
+        public int InputNumberOfPlayers()
+        {
+            Console.WriteLine("How many players will there be in this game?");
+            bool validPlayers = false;
+            int numberOfPlayers = 0;
+            while (validPlayers is false)
+            {
+                try
+                {
+                    numberOfPlayers = int.Parse(Console.ReadLine());
+                    if (numberOfPlayers >= 2 && numberOfPlayers <= 6)
+                    {
+                        validPlayers = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a number between 2 and 6, inclusive.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a number between 2 and 6, inclusive.");
+                }
+            }
+            return numberOfPlayers;
+        }
+
+        public List<string> InputNames(int numberOfPlayers)
+        {
+            List<string> listOfNames = new List<string>(numberOfPlayers);
+            for (int i = 1; i <= numberOfPlayers; i++)
+            {
+                Console.WriteLine($"Please input the name of Player {numberOfPlayers}");
+                listOfNames.Add(Console.ReadLine());
+                //Would like to add some confirmation message here.
+            }
+            return listOfNames;
+        }
         public List<Tile> InitializeBoard(int numberOfPlayers)
         {
             List<Tile> board = new List<Tile>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
@@ -34,14 +72,19 @@ namespace Game
             }
             return board;
         }
-        public List<Player> InitializePlayers(int numberOfPlayers)
+        public List<Player> InitializePlayers(List<string> listOfNames)
         {
-            List<Player> players = new List<Player>(numberOfPlayers);
+            List<Player> players = new List<Player>(listOfNames.Count);
+            for (int i = 1; i <= listOfNames.Count; i++)
+            {
+                players.Add(new Player(listOfNames[i], i));
+            }
             return players;
         }
-        public GameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board)
+        public GameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board, DateTime timeStarted)
         {
-            var NewGame = new GameInstance(victoryPointTotal, numberOfPlayers, players, board);
+            //Can add validation that this game is valid.
+            var NewGame = new GameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);
             return NewGame;
         }
     }

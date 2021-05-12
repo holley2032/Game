@@ -6,7 +6,7 @@ namespace Game
 {
     class BoardProperties
     {
-        static private Dictionary<int, int> _PlayersToTiles = new Dictionary<int, int>(5)
+        private static readonly Dictionary<int, int> _PlayersToTiles = new Dictionary<int, int>(5)
             {
                 { 2, 20 },
                 { 3, 25 },
@@ -14,7 +14,7 @@ namespace Game
                 { 5, 35 },
                 { 6, 45 }
             };
-        static private List<string> _TileTypeList = new List<string>(10)
+        private static readonly List<string> _TileTypeList = new List<string>(10)
             {
                 "Forest",
                 "Desert",
