@@ -22,5 +22,6 @@ namespace Game
         public List<Player> Players { get; set; }
         public List<Tile> Board { get; set; }
         public DateTime TimeStarted { get; set; }
+        public List<Turn> ListOfTurns { get; set; }
     }
 }
