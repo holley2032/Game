@@ -23,7 +23,7 @@ namespace Game
         public string Name { get; set; }
         public int Points { get; set; }
         public int PlayerNumber { get; set; }
-        public Boolean IsTurn { get; set; }
+        public bool IsTurn { get; set; }
         override public string ToString()
         {
             return $"Player {PlayerNumber}, {Name}";

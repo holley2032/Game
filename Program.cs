@@ -7,19 +7,14 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            //If we want to make the number of players arbitrary:
-            /*bool validPlayers = false;
-            while (validPlayers is false)
-            {
-                validPlayers = int.TryParse(Console.ReadLine(), out int numberOfPlayers);
-            }*/
-
             ProgramManager Manager = new ProgramManager();
             int numberOfPlayers = Manager.InputNumberOfPlayers();
+            int victoryPointTotal = Manager.InputVictoryPointTotal();
             List<Tile> board = Manager.InitializeBoard(numberOfPlayers);
             List<string> listOfNames = Manager.InputNames(numberOfPlayers);
             List<Player> players = Manager.InitializePlayers(listOfNames);
-            GameInstance newGame = Manager.InitializeGame(7, numberOfPlayers, players, board, DateTime.Now);
+            GameInstance newGame = Manager.InitializeGame(victoryPointTotal, numberOfPlayers, players, board, DateTime.Now);
+            FinishedGame completedGame = Manager.StartGame(newGame);
             //Debug board initialization:
 
             foreach(Tile tile in board)

@@ -6,5 +6,9 @@ namespace Game
 {
     class FinishedGame
     {
+        public FinishedGame()
+        {
+                
+        }
     }
 }

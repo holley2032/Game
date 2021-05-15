@@ -44,6 +44,32 @@ namespace Game
             }
             return listOfNames;
         }
+        //Could combine this method and InputNumberOfPlayers into a more generic InputInteger method.
+        public int InputVictoryPointTotal()
+        {
+            bool validInt = false;
+            int victoryPointTotal = 0;
+            while (validInt is false)
+            {
+                try
+                {
+                    victoryPointTotal = int.Parse(Console.ReadLine());
+                    if (victoryPointTotal >= 1 && victoryPointTotal <= 50)
+                    {
+                        validInt = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a number between 1 and 50, inclusive.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a number between 1 and 50, inclusive.");
+                }
+            }
+            return victoryPointTotal;
+        }
         public List<Tile> InitializeBoard(int numberOfPlayers)
         {
             List<Tile> board = new List<Tile>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
@@ -84,8 +110,12 @@ namespace Game
         public GameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board, DateTime timeStarted)
         {
             //Can add validation that this game is valid.
-            var NewGame = new GameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);
+            GameInstance NewGame = new GameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);
             return NewGame;
+        }
+        public FinishedGame StartGame(GameInstance newGame)
+        {
+            return new FinishedGame();
         }
     }
 }
