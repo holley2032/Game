@@ -15,6 +15,7 @@ namespace Game
         public Boolean Occupied { get; set; }
         public int TileNumber { get; set; }
         public string Improvement { get; set; }
+        public List<Tile> AdjacentTo { get; set; }
         public override string ToString()
         {
             return $"{Type} {Name}";

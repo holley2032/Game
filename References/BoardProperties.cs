@@ -11,8 +11,8 @@ namespace Game
                 { 2, 20 },
                 { 3, 25 },
                 { 4, 30 },
-                { 5, 35 },
-                { 6, 45 }
+                { 5, 36 },
+                { 6, 49 }
             };
         private static readonly List<string> _TileTypeList = new List<string>(10)
             {

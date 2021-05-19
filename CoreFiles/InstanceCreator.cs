@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.GameLogic;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,13 @@ namespace Game.CoreFiles
 {
     class InstanceCreator
     {
-        public static Action CreateAction()
+        public static PlayerAction CreatePlayerAction()
         {
-            return new Action();
+            return new PlayerAction();
+        }
+        public static Board CreateBoard(int numberOfPlayers)
+        {
+            return new Board(numberOfPlayers);
         }
         public static Dice CreateDice()
         {

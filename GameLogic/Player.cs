@@ -24,6 +24,7 @@ namespace Game
         public int Points { get; set; }
         public int PlayerNumber { get; set; }
         public bool IsTurn { get; set; }
+        public Tile Location { get; set; }
         override public string ToString()
         {
             return $"Player {PlayerNumber}, {Name}";
