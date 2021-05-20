@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Game.CoreFiles
 {
-    class InstanceCreator
+    public class InstanceCreator
     {
         public static PlayerAction CreatePlayerAction()
         {

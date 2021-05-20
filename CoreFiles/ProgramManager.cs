@@ -93,7 +93,35 @@ namespace Game
         }*/
         public Board InitializeBoard(int numberOfPlayers)
         {
+            //Create individual rows and add them, instead of adding blank rows from beginning?
             Board board = InstanceCreator.CreateBoard(numberOfPlayers);
+            List<Tile> listOfTiles = new List<Tile>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
+            List<string> tiles = new List<string>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
+            int tilesLeft = tiles.Capacity;
+            while (tilesLeft > BoardProperties.TileTypeList.Count)
+            {
+                foreach (string tile in BoardProperties.TileTypeList)
+                {
+                    tiles.Add(tile);
+                }
+                tilesLeft -= 10;
+            }
+            Random randomNumber = new Random();
+            while (tilesLeft > 0)
+            {
+                int location = randomNumber.Next(0, 10);
+                tiles.Add(BoardProperties.TileTypeList[location]);
+                tilesLeft--;
+            }
+            for (int i = 0; i < board.NumberOfRows; i++)
+            {
+                for (int j = 0; j < board.NumberOfColumns; j++)
+                {
+                    int tileLocation = randomNumber.Next(0, tiles.Count);
+                    board.ListOfTiles[i][j] = (InstanceCreator.CreateTile(tiles[tileLocation]));
+                    tiles.RemoveAt(tileLocation);
+                }
+            }
             return board;
         }
         public List<Player> InitializePlayers(List<string> listOfNames)

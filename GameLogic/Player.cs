@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game
 {
-    class Player
+    public class Player
     {
         public Player(string name, int playerNumber)
         {
