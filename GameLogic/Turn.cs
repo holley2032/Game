@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Game
 {
-    class Turn
+    public class Turn
     {
         public int TurnNumber { get; set; }
         public List<PlayerAction> ListOfActions { get; set; }
+
     }
 }

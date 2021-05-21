@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Game
 {
-    class ProgramManager
+    public class ProgramManager
     {
         /*This method takes a lower and upper bound and asks the user to input a
          * valid integer between those two bounds, inclusive.*/

@@ -7,9 +7,9 @@ namespace Game.CoreFiles
 {
     public class InstanceCreator
     {
-        public static PlayerAction CreatePlayerAction()
+        public static PlayerAction CreatePlayerAction(Player player, string action)
         {
-            return new PlayerAction();
+            return new PlayerAction(player, action);
         }
         public static Board CreateBoard(int numberOfPlayers)
         {

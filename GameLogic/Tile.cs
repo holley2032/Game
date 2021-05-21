@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game
 {
-    class Tile
+    public class Tile
     {
         public Tile(string type)
         {

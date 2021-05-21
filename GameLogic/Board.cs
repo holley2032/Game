@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.GameLogic
 {
-    class Board
+    public class Board
     {
         public Board(int numberOfPlayers)
         {
