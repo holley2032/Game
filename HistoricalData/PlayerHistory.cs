@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Game.GameLogic;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game
+namespace Game.HistoricalData
 {
-    class PlayerHistory
+    public class PlayerHistory
     {
         public int NumberOfGamesPlayer { get; set; }
         public List<Player> ListOfPlayerInstances { get; set; }

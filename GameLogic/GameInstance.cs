@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game
+namespace Game.GameLogic
 {
-    class GameInstance
+    public class GameInstance
     {
         public GameInstance(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board, DateTime timeStarted)
         {
@@ -18,7 +18,7 @@ namespace Game
         public int TurnNumber { get; set; }
         public int NumberOfPlayers { get; set; }
         public int VictoryPointTotal { get; set; }
-        public Boolean VictoryConditionMet { get; set; }
+        public bool VictoryConditionMet { get; set; }
         public List<Player> Players { get; set; }
         public List<Tile> Board { get; set; }
         public DateTime TimeStarted { get; set; }

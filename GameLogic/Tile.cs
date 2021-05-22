@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game
+namespace Game.GameLogic
 {
     public class Tile
     {
@@ -14,7 +14,8 @@ namespace Game
         public string Name { get; set; }
         public Boolean Occupied { get; set; }
         public int TileNumber { get; set; }
-        public string Improvement { get; set; }
+        public IImprovement Improvement { get; set; }
+        public List<IImprovement> ValidImprovements { get; set; }
         public List<Tile> AdjacentTo { get; set; }
         public override string ToString()
         {

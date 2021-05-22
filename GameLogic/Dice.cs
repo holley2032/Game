@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game
+namespace Game.GameLogic
 {
-    class Dice
+    public class Dice
     {
         public Dice()
         {

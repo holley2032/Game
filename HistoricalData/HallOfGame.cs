@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game
+namespace Game.HistoricalData
 {
-    class HallOfGame
+    public class HallOfGame
     {
         public List<FinishedGame> ListOfGames { get; set; }
     }

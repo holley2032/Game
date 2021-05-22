@@ -1,11 +1,10 @@
-﻿using Game.CoreFiles;
-using Game.GameLogic;
+﻿using Game.GameLogic;
 using Game.References;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game
+namespace Game.CoreFiles
 {
     public class ProgramManager
     {
@@ -118,7 +117,7 @@ namespace Game
                 for (int j = 0; j < board.NumberOfColumns; j++)
                 {
                     int tileLocation = randomNumber.Next(0, tiles.Count);
-                    board.ListOfTiles[i][j] = (InstanceCreator.CreateTile(tiles[tileLocation]));
+                    board.ListOfTiles[i][j] = InstanceCreator.CreateTile(tiles[tileLocation]);
                     tiles.RemoveAt(tileLocation);
                 }
             }

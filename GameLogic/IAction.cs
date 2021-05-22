@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.GameLogic
 {
-    interface IAction
+    public interface IAction
     {
         public Player PlayerInstance { get; set; }
         public string TypeOfAction { get; set; }

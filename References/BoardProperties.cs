@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Game
+namespace Game.References
 {
-    class BoardProperties
+    public class BoardProperties
     {
         private static readonly Dictionary<int, int> _PlayersToTiles = new Dictionary<int, int>(5)
             {

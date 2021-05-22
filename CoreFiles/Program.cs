@@ -1,8 +1,8 @@
-﻿using Game.CoreFiles;
+﻿using Game.GameLogic;
 using System;
 using System.Collections.Generic;
 
-namespace Game
+namespace Game.CoreFiles
 {
     class Program
     {
@@ -18,7 +18,7 @@ namespace Game
             FinishedGame completedGame = Manager.StartGame(newGame);
             //Debug board initialization:
 
-            foreach(Tile tile in board)
+            foreach (Tile tile in board)
             {
                 Console.WriteLine(tile.ToString());
             }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.References
 {
-    class GameConstants
+    public class GameConstants
     {
         public const int minNumberOfPlayers = 2;
         public const int maxNumberOfPlayers = 6;
