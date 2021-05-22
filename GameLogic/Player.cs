@@ -31,6 +31,7 @@ namespace Game
             get { return _Location; }
             set { _Location = value; }
         }
+        public Dictionary<IItem, int> Inventory { get; set; }
         override public string ToString()
         {
             return $"Player {PlayerNumber}, {Name}";

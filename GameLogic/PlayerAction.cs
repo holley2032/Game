@@ -30,6 +30,6 @@ namespace Game
                 throw new Exception($"{{player.Name}} cannot move to {{desiredLocation.Name}}. Please choose another tile.");
             }
         }
-        public 
+        public void BuildImprovement()
     }
 }
