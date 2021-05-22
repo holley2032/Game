@@ -6,7 +6,7 @@ namespace Game.GameLogic
 {
     public class GameInstance
     {
-        public GameInstance(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board, DateTime timeStarted)
+        public GameInstance(int victoryPointTotal, int numberOfPlayers, List<Player> players, Board board, DateTime timeStarted)
         {
             VictoryPointTotal = victoryPointTotal;
             NumberOfPlayers = numberOfPlayers;
@@ -20,7 +20,7 @@ namespace Game.GameLogic
         public int VictoryPointTotal { get; set; }
         public bool VictoryConditionMet { get; set; }
         public List<Player> Players { get; set; }
-        public List<Tile> Board { get; set; }
+        public Board Board { get; set; }
         public DateTime TimeStarted { get; set; }
         public List<Turn> ListOfTurns { get; set; }
     }

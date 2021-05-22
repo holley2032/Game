@@ -1,4 +1,5 @@
 ﻿using Game.GameLogic;
+using Game.HistoricalData;
 using Game.References;
 using System;
 using System.Collections.Generic;
@@ -114,10 +115,11 @@ namespace Game.CoreFiles
             }
             for (int i = 0; i < board.NumberOfRows; i++)
             {
+                board.ListOfTiles.Add(new List<Tile>(capacity: board.NumberOfColumns));
                 for (int j = 0; j < board.NumberOfColumns; j++)
                 {
                     int tileLocation = randomNumber.Next(0, tiles.Count);
-                    board.ListOfTiles[i][j] = InstanceCreator.CreateTile(tiles[tileLocation]);
+                    board.ListOfTiles[i].Add(InstanceCreator.CreateTile(tiles[tileLocation]));
                     tiles.RemoveAt(tileLocation);
                 }
             }
@@ -132,7 +134,7 @@ namespace Game.CoreFiles
             }
             return players;
         }
-        public GameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board, DateTime timeStarted)
+        public GameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<Player> players, Board board, DateTime timeStarted)
         {
             //Can add validation that this game is valid.
             GameInstance NewGame = InstanceCreator.CreateGameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);

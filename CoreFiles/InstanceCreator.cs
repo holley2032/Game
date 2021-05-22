@@ -1,4 +1,5 @@
 ﻿using Game.GameLogic;
+using Game.HistoricalData;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Game.CoreFiles
         {
             return new Dice();
         }
-        public static GameInstance CreateGameInstance(int victoryPointTotal, int numberOfPlayers, List<Player> players, List<Tile> board, DateTime timeStarted)
+        public static GameInstance CreateGameInstance(int victoryPointTotal, int numberOfPlayers, List<Player> players, Board board, DateTime timeStarted)
         {
             return new GameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);
         }
