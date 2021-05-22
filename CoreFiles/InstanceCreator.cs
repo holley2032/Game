@@ -28,9 +28,9 @@ namespace Game.CoreFiles
         {
             return new Player(name, playerNumber);
         }
-        public static Tile CreateTile(string type)
+        public static Tile CreateTile(string type, int column, int row)
         {
-            return new Tile(type);
+            return new Tile(type, column, row);
         }
         public static Turn CreateTurn()
         {

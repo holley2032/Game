@@ -6,9 +6,10 @@ namespace Game.GameLogic
 {
     public class Tile : ITile
     {
-        public Tile(string type)
+        public Tile(string type, int column, int row)
         {
             Type = type;
+            Name = GenerateTileName(column, row);
         }
         public string Type { get; set; }
         public string Name { get; set; }
@@ -22,5 +23,9 @@ namespace Game.GameLogic
             return $"{Type} {Name}";
         }
 
+        public string GenerateTileName(int column, int row)
+        {
+            return $"{{Convert.ToChar(i + 65)}}{{j}}";
+        }
     }
 }

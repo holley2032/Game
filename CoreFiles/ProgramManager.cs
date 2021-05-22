@@ -90,7 +90,7 @@ namespace Game.CoreFiles
                 for (int j = 0; j < board.NumberOfColumns; j++)
                 {
                     int tileLocation = randomNumber.Next(0, tiles.Count);
-                    board.ListOfTiles[i].Add(InstanceCreator.CreateTile(tiles[tileLocation]));
+                    board.ListOfTiles[i].Add(InstanceCreator.CreateTile(tiles[tileLocation], j, i));
                     tiles.RemoveAt(tileLocation);
                 }
             }
