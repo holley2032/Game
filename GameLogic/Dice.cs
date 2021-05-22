@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.GameLogic
 {
-    public class Dice
+    public class Dice : IDice
     {
         public Dice()
         {

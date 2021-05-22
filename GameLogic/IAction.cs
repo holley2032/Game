@@ -6,7 +6,7 @@ namespace Game.GameLogic
 {
     public interface IAction
     {
-        public Player PlayerInstance { get; set; }
+        public IPlayer PlayerInstance { get; set; }
         public string TypeOfAction { get; set; }
     }
 }

@@ -4,18 +4,8 @@ using System.Text;
 
 namespace Game.GameLogic
 {
-    public class GameInstance : IGameInstance
+    public interface IGameInstance
     {
-        public GameInstance(int victoryPointTotal, int numberOfPlayers, List<IPlayer> players, IBoard board, DateTime timeStarted)
-        {
-            VictoryPointTotal = victoryPointTotal;
-            NumberOfPlayers = numberOfPlayers;
-            Players = players;
-            Board = board;
-            TimeStarted = timeStarted;
-        }
-
-        public int TurnNumber { get; set; }
         public int NumberOfPlayers { get; set; }
         public int VictoryPointTotal { get; set; }
         public bool VictoryConditionMet { get; set; }

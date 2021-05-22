@@ -57,45 +57,16 @@ namespace Game.CoreFiles
             }
             return listOfNames;
         }
-        //Could combine this method and InputNumberOfPlayers into a more generic InputInteger method.
         public int InputVictoryPointTotal()
         {
             Console.WriteLine("How many victory points should we play to?");
             return InputInteger(GameConstants.minNumberOfVictoryPoints, GameConstants.maxNumberOfVictoryPoints);
         }
-        /*public List<Tile> InitializeBoard(int numberOfPlayers)
-        {
-            List<Tile> board = new List<Tile>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
-            List<string> tiles = new List<string>(capacity: board.Capacity);
-            int tilesLeft = tiles.Capacity;
-            while (tilesLeft > BoardProperties.TileTypeList.Count)
-            {
-                foreach(string tile in BoardProperties.TileTypeList)
-                {
-                    tiles.Add(tile);
-                }
-                tilesLeft -= 10;
-            }
-            Random randomNumber = new Random();
-            while (tilesLeft > 0)
-            {
-                int location = randomNumber.Next(0, 10);
-                tiles.Add(BoardProperties.TileTypeList[location]);
-                tilesLeft--;
-            }
-            for (int i = 0; i < board.Capacity; i++)
-            {
-                int tileLocation = randomNumber.Next(0, tiles.Count);
-                board.Add(InstanceCreator.CreateTile(tiles[tileLocation]));
-                tiles.RemoveAt(tileLocation);
-            }
-            return board;
-        }*/
-        public Board InitializeBoard(int numberOfPlayers)
+        public IBoard InitializeBoard(int numberOfPlayers)
         {
             //Create individual rows and add them, instead of adding blank rows from beginning?
-            Board board = InstanceCreator.CreateBoard(numberOfPlayers);
-            List<Tile> listOfTiles = new List<Tile>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
+            IBoard board = InstanceCreator.CreateBoard(numberOfPlayers);
+            List<ITile> listOfTiles = new List<ITile>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
             List<string> tiles = new List<string>(capacity: BoardProperties.PlayersToTiles.GetValueOrDefault(numberOfPlayers));
             int tilesLeft = tiles.Capacity;
             while (tilesLeft > BoardProperties.TileTypeList.Count)
@@ -115,7 +86,7 @@ namespace Game.CoreFiles
             }
             for (int i = 0; i < board.NumberOfRows; i++)
             {
-                board.ListOfTiles.Add(new List<Tile>(capacity: board.NumberOfColumns));
+                board.ListOfTiles.Add(new List<ITile>(capacity: board.NumberOfColumns));
                 for (int j = 0; j < board.NumberOfColumns; j++)
                 {
                     int tileLocation = randomNumber.Next(0, tiles.Count);
@@ -125,22 +96,22 @@ namespace Game.CoreFiles
             }
             return board;
         }
-        public List<Player> InitializePlayers(List<string> listOfNames)
+        public List<IPlayer> InitializePlayers(List<string> listOfNames)
         {
-            List<Player> players = new List<Player>(listOfNames.Count);
+            List<IPlayer> players = new List<IPlayer>(listOfNames.Count);
             for (int i = 1; i <= listOfNames.Count; i++)
             {
                 players.Add(InstanceCreator.CreatePlayer(listOfNames[i - 1], i));
             }
             return players;
         }
-        public GameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<Player> players, Board board, DateTime timeStarted)
+        public IGameInstance InitializeGame(int victoryPointTotal, int numberOfPlayers, List<IPlayer> players, IBoard board, DateTime timeStarted)
         {
             //Can add validation that this game is valid.
-            GameInstance NewGame = InstanceCreator.CreateGameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);
+            IGameInstance NewGame = InstanceCreator.CreateGameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);
             return NewGame;
         }
-        public FinishedGame StartGame(GameInstance newGame)
+        public IGameInstance StartGame(IGameInstance newGame)
         {
             return InstanceCreator.CreateFinishedGame();
         }

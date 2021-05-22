@@ -7,24 +7,24 @@ namespace Game.GameLogic
 {
     public class PlayerAction : IAction
     {
-        public PlayerAction(Player player, string action)
+        public PlayerAction(IPlayer player, string action)
         {
             PlayerInstance = player;
             TypeOfAction = action;
         }
 
-        public Player PlayerInstance { get; set; }
+        public IPlayer PlayerInstance { get; set; }
         public string TypeOfAction { get; set; }
-        public void ActionComplete(Turn currentTurn, IAction currentAction)
+        public void ActionComplete(ITurn currentTurn, IAction currentAction)
         {
             currentTurn.ListOfActions.Add(currentAction);
             //Send signal back to currentTurn that turn for this player is complete.
         }
-        public void MovePlayer(Player player, Tile currentLocation, Tile desiredLocation, Turn currentTurn)
+        public void MovePlayer(IPlayer player, ITile currentLocation, ITile desiredLocation, ITurn currentTurn)
         {
             if (currentLocation.AdjacentTo.Contains(desiredLocation))
             {
-                PlayerAction currentAction = InstanceCreator.CreatePlayerAction(player, "Move");
+                var currentAction = InstanceCreator.CreatePlayerAction(player, "Move");
                 player.Location = desiredLocation;
                 ActionComplete(currentTurn, currentAction);
             }
@@ -33,7 +33,7 @@ namespace Game.GameLogic
                 throw new Exception($"{{player.Name}} cannot move to {{desiredLocation.Name}}. Please choose another tile.");
             }
         }
-        public void BuildImprovement(Player player, Tile tile, IImprovement improvement)
+        public void BuildImprovement(IPlayer player, ITile tile, IImprovement improvement)
         {
             if (tile.ValidImprovements.Contains(improvement))
             {

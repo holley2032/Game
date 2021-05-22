@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.GameLogic
 {
-    public class Player
+    public class Player : IPlayer
     {
         public Player(string name, int playerNumber)
         {
@@ -25,8 +25,8 @@ namespace Game.GameLogic
         public int PlayerNumber { get; set; }
         public bool IsTurn { get; set; }
 
-        private Tile _Location;
-        public Tile Location
+        private ITile _Location;
+        public ITile Location
         {
             get { return _Location; }
             set { _Location = value; }

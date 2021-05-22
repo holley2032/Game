@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Game.GameLogic
 {
-    public class Turn : ITurn
+    interface ITurn
     {
         public int TurnNumber { get; set; }
         public List<IAction> ListOfActions { get; set; }
-
     }
 }

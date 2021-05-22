@@ -4,12 +4,8 @@ using System.Text;
 
 namespace Game.GameLogic
 {
-    public class Tile : ITile
+    public interface ITile
     {
-        public Tile(string type)
-        {
-            Type = type;
-        }
         public string Type { get; set; }
         public string Name { get; set; }
         public Boolean Occupied { get; set; }
@@ -17,10 +13,5 @@ namespace Game.GameLogic
         public IImprovement Improvement { get; set; }
         public List<IImprovement> ValidImprovements { get; set; }
         public List<ITile> AdjacentTo { get; set; }
-        public override string ToString()
-        {
-            return $"{Type} {Name}";
-        }
-
     }
 }

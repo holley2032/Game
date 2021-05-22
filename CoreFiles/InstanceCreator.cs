@@ -8,7 +8,7 @@ namespace Game.CoreFiles
 {
     public class InstanceCreator
     {
-        public static PlayerAction CreatePlayerAction(Player player, string action)
+        public static PlayerAction CreatePlayerAction(IPlayer player, string action)
         {
             return new PlayerAction(player, action);
         }
@@ -20,7 +20,7 @@ namespace Game.CoreFiles
         {
             return new Dice();
         }
-        public static GameInstance CreateGameInstance(int victoryPointTotal, int numberOfPlayers, List<Player> players, Board board, DateTime timeStarted)
+        public static GameInstance CreateGameInstance(int victoryPointTotal, int numberOfPlayers, List<IPlayer> players, IBoard board, DateTime timeStarted)
         {
             return new GameInstance(victoryPointTotal, numberOfPlayers, players, board, timeStarted);
         }
