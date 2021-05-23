@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Game.References
 {
@@ -27,10 +25,12 @@ namespace Game.References
                 "Mountains",
                 "Floodplains"
             };
-        static public Dictionary<int, int> PlayersToTiles { 
+        static public Dictionary<int, int> PlayersToTiles
+        {
             get => _PlayersToTiles;
         }
-        static public List<string> TileTypeList { 
+        static public List<string> TileTypeList
+        {
             get => _TileTypeList;
         }
     }

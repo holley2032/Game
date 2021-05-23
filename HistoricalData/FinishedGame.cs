@@ -1,7 +1,6 @@
 ﻿using Game.GameLogic;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Game.HistoricalData
 {
@@ -9,7 +8,7 @@ namespace Game.HistoricalData
     {
         public FinishedGame()
         {
-                
+
         }
         public int NumberOfPlayers { get; set; }
         public int VictoryPointTotal { get; set; }

@@ -1,7 +1,5 @@
 ﻿using Game.CoreFiles;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Game.GameLogic
 {
@@ -37,7 +35,7 @@ namespace Game.GameLogic
         {
             if (tile.ValidImprovements.Contains(improvement))
             {
-                
+
             }
             else
             {

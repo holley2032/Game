@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Game.References
+﻿namespace Game.References
 {
     public class GameConstants
     {
