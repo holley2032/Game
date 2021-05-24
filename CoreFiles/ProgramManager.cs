@@ -111,6 +111,10 @@ namespace Game.CoreFiles
         }
         public IGameInstance StartGame(IGameInstance newGame)
         {
+            while (newGame.VictoryConditionMet == false)
+            {
+
+            }
             return InstanceCreator.CreateFinishedGame();
         }
     }

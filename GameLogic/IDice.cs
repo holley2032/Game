@@ -6,6 +6,6 @@ namespace Game.GameLogic
     {
         public int DieRoll1 { get; set; }
         public Random Die1 { get; set; }
-        public void RollDice()
+        public void RollDice();
     }
 }

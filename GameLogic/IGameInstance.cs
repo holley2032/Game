@@ -12,5 +12,6 @@ namespace Game.GameLogic
         public IBoard Board { get; set; }
         public DateTime TimeStarted { get; set; }
         public List<ITurn> ListOfTurns { get; set; }
+        public void DisplayBoardOnConsole(IBoard board);
     }
 }

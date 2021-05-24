@@ -22,5 +22,16 @@ namespace Game.GameLogic
         public IBoard Board { get; set; }
         public DateTime TimeStarted { get; set; }
         public List<ITurn> ListOfTurns { get; set; }
+        public void DisplayBoardOnConsole(IBoard board)
+        {
+            for (int i = 0; i < board.NumberOfRows; i++)
+            {
+                for (int j = 0; j < board.NumberOfColumns; j++)
+                {
+                    Console.Write(board.ListOfTiles[i][j]);
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
