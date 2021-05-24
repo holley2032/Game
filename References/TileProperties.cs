@@ -8,7 +8,9 @@ namespace Game.References
     {
         private static readonly Dictionary<string, List<string>> _ValidImprovements = new Dictionary<string, List<string>>(10)
         {
-            {"Forest", new List<string>{"Log Cabin", "Lumber Mill", ""}
+            {"Forest", new List<string>{"Log Cabin", "Lumber Mill"} },
+            {"Desert", new List<string>{"Artificial Oasis"} }
+
         };
 
         public static Dictionary<string, List<string>> ValidImprovements

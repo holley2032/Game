@@ -5,9 +5,9 @@ namespace Game.GameLogic
 {
     public interface IImprovement
     {
-        public string ValidTileType { get; set; }
-        public Dictionary<IItem, int> CostOfBuilding { get; set; }
-        public Object Benefit { get; set; }
-        public string Name { get; set; }
+        public static string ValidTileType { get; }
+        public static Dictionary<IItem, int> CostOfBuilding { get; }
+        public static Object Benefit { get; }
+        public static string Name { get; }
     }
 }
