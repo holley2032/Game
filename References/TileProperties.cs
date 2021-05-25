@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.References
 {
-    class TileProperties
+    public class TileProperties
     {
         private static readonly Dictionary<string, List<string>> _ValidImprovements = new Dictionary<string, List<string>>(10)
         {

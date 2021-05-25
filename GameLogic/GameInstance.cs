@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.CoreFiles;
+using Game.References;
 
 namespace Game.GameLogic
 {
@@ -40,7 +41,20 @@ namespace Game.GameLogic
         public void RunTurn()
         {
             TurnNumber++;
-            
+            for (int i = 0; i < Players.Count; i++)
+            {
+                IPlayer activePlayer = Players[i];
+                DisplayActionsOnConsole(activePlayer);
+                //Input Integer Method
+            }
+        }
+
+        private void DisplayActionsOnConsole(IPlayer activePlayer)
+        {
+            for (int i = 1; i <= ActionProperties.ListOfActions.Count; i++)
+            {
+                Console.WriteLine($"{{i}}: {{ActionProperties.ListOfActions[i - 1]}}");
+            };
         }
     }
 }
