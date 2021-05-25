@@ -113,7 +113,7 @@ namespace Game.CoreFiles
         {
             while (newGame.VictoryConditionMet == false)
             {
-
+                newGame.RunTurn();
             }
             return InstanceCreator.CreateFinishedGame();
         }

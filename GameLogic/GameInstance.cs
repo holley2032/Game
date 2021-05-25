@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.CoreFiles;
 
 namespace Game.GameLogic
 {
@@ -10,8 +11,10 @@ namespace Game.GameLogic
             VictoryPointTotal = victoryPointTotal;
             NumberOfPlayers = numberOfPlayers;
             Players = players;
+            FirstPlayer = Players[0]; //At some point add some logic for this?
             Board = board;
             TimeStarted = timeStarted;
+            TurnNumber = 0;
         }
 
         public int TurnNumber { get; set; }
@@ -19,6 +22,7 @@ namespace Game.GameLogic
         public int VictoryPointTotal { get; set; }
         public bool VictoryConditionMet { get; set; }
         public List<IPlayer> Players { get; set; }
+        public IPlayer FirstPlayer { get; set; }
         public IBoard Board { get; set; }
         public DateTime TimeStarted { get; set; }
         public List<ITurn> ListOfTurns { get; set; }
@@ -32,6 +36,11 @@ namespace Game.GameLogic
                 }
                 Console.WriteLine();
             }
+        }
+        public void RunTurn()
+        {
+            TurnNumber++;
+            
         }
     }
 }

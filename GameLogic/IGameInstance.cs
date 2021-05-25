@@ -13,5 +13,6 @@ namespace Game.GameLogic
         public DateTime TimeStarted { get; set; }
         public List<ITurn> ListOfTurns { get; set; }
         public void DisplayBoardOnConsole(IBoard board);
+        public void RunTurn();
     }
 }
