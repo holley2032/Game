@@ -1,5 +1,6 @@
 ﻿using Game.GameLogic;
 using Game.References;
+using static Game.References.UtilityFunctions;
 using System;
 using System.Collections.Generic;
 
@@ -7,37 +8,6 @@ namespace Game.CoreFiles
 {
     public class ProgramManager
     {
-        /*This method takes a lower and upper bound and asks the user to input a
-         * valid integer between those two bounds, inclusive.*/
-        public int InputInteger(int lowerBound, int upperBound)
-        {
-            bool validInteger = false;
-            int result = 0;
-            while (validInteger is false)
-            {
-                try
-                {
-                    result = int.Parse(Console.ReadLine());
-                    if (result >= lowerBound && result <= upperBound)
-                    {
-                        validInteger = true;
-                    }
-                    else
-                    {
-                        InvalidNumberMessage(lowerBound, upperBound);
-                    }
-                }
-                catch (FormatException)
-                {
-                    InvalidNumberMessage(lowerBound, upperBound);
-                }
-            }
-            return result;
-        }
-        public void InvalidNumberMessage(int lowerBound, int upperBound)
-        {
-            Console.WriteLine($"Please enter a number between {lowerBound} and {upperBound}, inclusive");
-        }
         public int InputNumberOfPlayers()
         {
             Console.WriteLine("How many players will there be in this game?");

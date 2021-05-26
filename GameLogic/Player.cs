@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Game.CoreFiles;
 
 namespace Game.GameLogic
 {
@@ -34,6 +36,38 @@ namespace Game.GameLogic
         {
             return $"Player {PlayerNumber}, {Name}";
         }
-
+        public void ActionComplete(ITurn currentTurn, IAction currentAction)
+        {
+            currentTurn.ListOfActions.Add(currentAction);
+            //Send signal back to currentTurn that turn for this player is complete.
+        }
+        public void MovePlayer(ITile currentLocation, ITile desiredLocation)
+        {
+            if (currentLocation.AdjacentTo.Contains(desiredLocation))
+            {
+                Location = desiredLocation;
+                var currentAction = InstanceCreator.CreatePlayerAction(this, "Move");
+            }
+            else
+            {
+                throw new Exception($"{{player.Name}} cannot move to {{desiredLocation.Name}}. Please choose another tile.");
+            }
+        }
+        public void BuildImprovement(ITile tile, IImprovement improvement)
+        {
+            if (tile.ValidImprovements.Contains(improvement))
+            {
+                var currentAction = InstanceCreator.CreatePlayerAction(this, "Build");
+            }
+            else
+            {
+                throw new Exception($"{{tile.Name}} cannot contain {{improvement.Name}}");
+            }
+        }
+        public void SkipTurn(ITurn currentTurn)
+        {
+            var currentAction = InstanceCreator.CreatePlayerAction(this, "Skip");
+            ActionComplete(currentTurn, currentAction);
+        }
     }
 }

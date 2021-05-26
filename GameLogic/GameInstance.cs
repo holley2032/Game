@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Game.CoreFiles;
 using Game.References;
+using static Game.References.UtilityFunctions;
 
 namespace Game.GameLogic
 {
@@ -45,7 +46,8 @@ namespace Game.GameLogic
             {
                 IPlayer activePlayer = Players[i];
                 DisplayActionsOnConsole(activePlayer);
-                //Input Integer Method
+                int decision = InputInteger(1, ActionProperties.ListOfActions.Count);
+                
             }
         }
 
