@@ -45,6 +45,7 @@ namespace Game.GameLogic
             for (int i = 0; i < Players.Count; i++)
             {
                 IPlayer activePlayer = Players[i];
+                DisplayBoardOnConsole(Board);
                 DisplayActionsOnConsole(activePlayer);
                 int decision = InputInteger(1, ActionProperties.ListOfActions.Count);
                 
@@ -55,7 +56,7 @@ namespace Game.GameLogic
         {
             for (int i = 1; i <= ActionProperties.ListOfActions.Count; i++)
             {
-                Console.WriteLine($"{{i}}: {{ActionProperties.ListOfActions[i - 1]}}");
+                Console.WriteLine($"{i}: {ActionProperties.ListOfActions[i - 1]}");
             };
         }
     }

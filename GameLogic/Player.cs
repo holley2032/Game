@@ -41,23 +41,25 @@ namespace Game.GameLogic
             currentTurn.ListOfActions.Add(currentAction);
             //Send signal back to currentTurn that turn for this player is complete.
         }
-        public void MovePlayer(ITile currentLocation, ITile desiredLocation)
+        public void MovePlayer(ITile currentLocation, ITile desiredLocation, ITurn currentTurn)
         {
             if (currentLocation.AdjacentTo.Contains(desiredLocation))
             {
                 Location = desiredLocation;
                 var currentAction = InstanceCreator.CreatePlayerAction(this, "Move");
+                ActionComplete(currentTurn, currentAction);
             }
             else
             {
                 throw new Exception($"{{player.Name}} cannot move to {{desiredLocation.Name}}. Please choose another tile.");
             }
         }
-        public void BuildImprovement(ITile tile, IImprovement improvement)
+        public void BuildImprovement(ITile tile, IImprovement improvement, ITurn currentTurn)
         {
             if (tile.ValidImprovements.Contains(improvement))
             {
                 var currentAction = InstanceCreator.CreatePlayerAction(this, "Build");
+                ActionComplete(currentTurn, currentAction);
             }
             else
             {

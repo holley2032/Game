@@ -24,7 +24,7 @@ namespace Game.GameLogic
 
         public string GenerateTileName(int column, int row)
         {
-            return $"{{Convert.ToChar(i + 65)}}{{j}}";
+            return $"{Convert.ToChar(column + 65)}{row}";
         }
     }
 }

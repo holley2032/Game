@@ -18,5 +18,10 @@ namespace Game.HistoricalData
         public DateTime TimeStarted { get; set; }
         public List<ITurn> ListOfTurns { get; set; }
         public void DisplayBoardOnConsole(IBoard board) { }
+
+        public void RunTurn()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

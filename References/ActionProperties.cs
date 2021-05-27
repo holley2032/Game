@@ -20,6 +20,17 @@ namespace Game.References
         {
             get { return _ListOfActions; }
         }
+        private static readonly List<string> _ListOfNonFinalActions = new List<string>(2)
+        {
+            "Trade",
+            "Sell"
+        };
+
+        public static List<string> ListOfNonFinalActions
+        {
+            get { return _ListOfNonFinalActions; }
+        }
+
 
     }
 }
