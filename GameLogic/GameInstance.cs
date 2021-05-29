@@ -48,7 +48,8 @@ namespace Game.GameLogic
                 DisplayBoardOnConsole(Board);
                 DisplayActionsOnConsole(activePlayer);
                 int decision = InputInteger(1, ActionProperties.ListOfActions.Count);
-                
+                string action = ActionProperties.ListOfActions[i - 1];
+                Player.Action(action);
             }
         }
 

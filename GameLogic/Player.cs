@@ -66,6 +66,12 @@ namespace Game.GameLogic
                 throw new Exception($"{{tile.Name}} cannot contain {{improvement.Name}}");
             }
         }
+
+        public void Action(string action)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SkipTurn(ITurn currentTurn)
         {
             var currentAction = InstanceCreator.CreatePlayerAction(this, "Skip");
