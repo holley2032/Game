@@ -17,5 +17,9 @@ namespace Game.GameLogic
         public int NumberOfRows { get; set; }
         public int NumberOfColumns { get; set; }
         public int NumberOfTiles { get; set; }
+        public void DisplayBoard()
+        {
+
+        }
     }
 }
